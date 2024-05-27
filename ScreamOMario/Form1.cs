@@ -15,11 +15,11 @@ namespace ScreamOMario
         private delegate void SafeCallDelegate(int max);
 
         //voice
-        WaveInEvent waveIn = new WaveInEvent();
+        WaveInEvent waveIn = new WaveInEvent();//Naudio downloaded via Nugget
 
         //Character
-        Image Mario;
-        List<string> marioMovement = new List<string>();
+        Image character;
+        List<string> characterMovement = new List<string>();
         int steps = 0;
 
         //movement
@@ -45,12 +45,16 @@ namespace ScreamOMario
         //settings
         bool isPushToTalk;
         int deviceNumber;
-        public ScreamOMario(int deviceNumber, bool isPushToTalk)
+
+        //Character
+        int characterIndex;
+        public ScreamOMario(int deviceNumber, bool isPushToTalk, int characterIndex)
         {
             InitializeComponent();
             //setings
             this.deviceNumber = deviceNumber;
             this.isPushToTalk = isPushToTalk;
+            this.characterIndex = characterIndex;
         }
         private void OnDataAvailable(object sender, WaveInEventArgs args)
         {
@@ -70,7 +74,7 @@ namespace ScreamOMario
             {
                 if (pushToTalk)
                 {
-                    SetWave((int)(100 * max));
+                    SetWave((int)(250* max));//100
                     moveY = GetJumpHeight();
                 }
                 else
@@ -81,7 +85,7 @@ namespace ScreamOMario
             }
             else
             {
-                SetWave((int)(100 * max));
+                SetWave((int)(250* max));//100
                 moveY = GetJumpHeight();
             }
             if(moveY != 0)
@@ -103,6 +107,10 @@ namespace ScreamOMario
             }
             else
             {
+                if(max > 100)
+                {
+                    max = 100;
+                }
                 this.volume.Value = max;
             }
         }
@@ -136,25 +144,29 @@ namespace ScreamOMario
             {
                 moveLeft = false;
                 lastPosition = 'l';
+                //jump left
                 if (jump)
                 {
-                    Mario = Image.FromFile(marioMovement[4]);
+                    character = Image.FromFile(characterMovement[3]);
                 }
+                //left
                 else
                 {
-                    Mario = Image.FromFile(marioMovement[1]);
+                    character = Image.FromFile(characterMovement[1]);
                 }
             }else if(e.KeyCode == Keys.Right)
             {
                 moveRight= false;
                 lastPosition = 'r';
+                //jump right
                 if (jump)
                 {
-                    Mario = Image.FromFile(marioMovement[2]);
+                    character = Image.FromFile(characterMovement[2]);
                 }
+                //right
                 else
                 {
-                    Mario = Image.FromFile(marioMovement[0]);
+                    character = Image.FromFile(characterMovement[0]);
                 }
             }
             else if (isPushToTalk)
@@ -177,47 +189,49 @@ namespace ScreamOMario
                     //left
                     if(lastPosition == 'l')
                     {
-                        Mario = Image.FromFile(marioMovement[0]);
+                        character = Image.FromFile(characterMovement[0]);
                     }
                     //right
                     else if(lastPosition == 'r')
                     {
-                        Mario = Image.FromFile(marioMovement[1]);
+                        character = Image.FromFile(characterMovement[1]);
                     }
                 }
             }
             else if (moveLeft)
             {
-                if (positionX <= 0 - Mario.Width) positionX = this.Width - Mario.Width;
+                if (positionX <= 0 - character.Width) positionX = this.Width - character.Width;
                 else
                 {
                     positionX -= moveX;
                     //run left Image
                     if (!jump)
                     {
-                        AnimateMario(10, 13);
+                        AnimateMario(8, 11);
                     }
+                    //left jump
                     else if (jump)
                     {
-                        Mario = Image.FromFile(marioMovement[4]);
+                        character = Image.FromFile(characterMovement[3]);
                     }
                    
                 }
             }
             else if (moveRight)
             {
-                if (positionX >= this.Width - Mario.Width) positionX = 0;
+                if (positionX >= this.Width - character.Width) positionX = 0;
                 else
                 {
                     positionX += moveX;
                     //run right Image
                     if (!jump)
                     {
-                        AnimateMario(6, 9);
+                        AnimateMario(4, 7);
                     }
+                    //right jump
                     else if (jump)
                     {
-                        Mario = Image.FromFile(marioMovement[2]);
+                        character = Image.FromFile(characterMovement[2]);
                     }
                 }
             }
@@ -239,29 +253,29 @@ namespace ScreamOMario
 
         private void JumpEvent(object sender, EventArgs e)
         {
-            if (jump && positionY >= this.ClientSize.Height / 2 - Mario.Height * 2)
+            if (jump && positionY >= this.ClientSize.Height / 2 - character.Height * 2)
             {
                 //positionY -= 10;
                 positionY -= moveY;
                 //last position
                 if(lastPosition == 'r')
                 {
-                    Mario = Image.FromFile(marioMovement[2]);
+                    character = Image.FromFile(characterMovement[2]);
                 }
                 else if(lastPosition == 'l')
                 {
-                    Mario = Image.FromFile(marioMovement[4]);
+                    character = Image.FromFile(characterMovement[3]);
                 }
             }
             else if(!jump)
             {
                 if(lastPosition == 'r')
                 {
-                    Mario = Image.FromFile(marioMovement[0]);
+                    character = Image.FromFile(characterMovement[0]);
                 }
                 else if(lastPosition == 'l')
                 {
-                    Mario = Image.FromFile(marioMovement[1]);
+                    character = Image.FromFile(characterMovement[1]);
                 }
 
             }
@@ -273,16 +287,16 @@ namespace ScreamOMario
         {
             foreach(Platform platform in platforms)
             {
-                if (positionY<= this.ClientSize.Height / 2 - Mario.Height)
+                if (positionY<= this.ClientSize.Height / 2 - character.Height)
                 {
                     //platform.positionY += moveY;
                     platform.positionY += 7;
                 }
                 if (platform.positionY > 389 + platform.platformImage.Height)
                 {
-                    //x.Location = new Point(rand.Next(0, this.ClientSize.Width - x.Width), Mario.Height - 3 * platformGap);
+                    //x.Location = new Point(rand.Next(0, this.ClientSize.Width - x.Width), character.Height - 3 * platformGap);
                     platform.positionX = rand.Next(0, this.ClientSize.Width - platform.platformImage.Width);
-                    platform.positionY = Mario.Height - 1 * platformGap;
+                    platform.positionY = character.Height - 1 * platformGap;
 
                     //score
                     score += 10;
@@ -300,7 +314,7 @@ namespace ScreamOMario
                 //graphics.DrawImage(platform.platformImage,platform.positionX,platform.positionY);
                 graphics.DrawImage(platform.platformImage,platform.positionX,platform.positionY, platform.platformImage.Width, platform.platformImage.Height );
             }
-            graphics.DrawImage(Mario, positionX, positionY, Mario.Width, Mario.Height);
+            graphics.DrawImage(character, positionX, positionY, character.Width, character.Height);
             graphics.DrawImage(platforms[10].platformImage, platforms[10].positionX, platforms[10].positionY, platforms[10].platformImage.Width, platforms[10].platformImage.Height);
         }
 
@@ -310,11 +324,11 @@ namespace ScreamOMario
             {
                 if (!jump)
                 {
-                    if (positionY + Mario.Height > platform.positionY && positionY + Mario.Height < platform.positionY + platform.platformImage.Height)
+                    if (positionY + character.Height > platform.positionY && positionY + character.Height < platform.positionY + platform.platformImage.Height)
                     {
-                        if (positionX > platform.positionX - Mario.Width && positionX < platform.positionX + platform.platformImage.Width )
+                        if (positionX > platform.positionX - character.Width && positionX < platform.positionX + platform.platformImage.Width )
                         {
-                            positionY = platform.positionY -Mario.Height;
+                            positionY = platform.positionY -character.Height;
                         }
                     }
                 }
@@ -339,32 +353,30 @@ namespace ScreamOMario
             {
                 platforms[i] = new Platform();
                 platforms[i].positionX = rand.Next(0, this.ClientSize.Width - platforms[i].platformImage.Width);
-                platforms[i].positionY = rand.Next(0, positionY - Mario.Height);
+                platforms[i].positionY = rand.Next(0, positionY - character.Height);
             }
             platforms[10] = new Platform();
             platforms[10].positionX = 408;
-            platforms[10].positionY = 300 + Mario.Height;
+            platforms[10].positionY = 300 + character.Height;
             
         }
         private void GameOver()
         {
-            if(positionY > 369 + Mario.Height)
+            if(positionY > 369 + character.Height)
             {
-                GameTimer.Stop();
                 this.Close();
-                waveIn.StopRecording();
-                waveIn.Dispose();
+
                 player.Stop();
-                GameOver gameOver = new GameOver(score, isPushToTalk, deviceNumber);
+                GameOver gameOver = new GameOver(score, isPushToTalk, deviceNumber, characterIndex);
                 gameOver.Show();
             }
         }
         //setup
         private void ScreamOMario_Load(object sender, EventArgs e)
         {
-            //Mario
-            marioMovement = Directory.GetFiles("Mario", "*.png").ToList(); 
-            Mario = Image.FromFile(marioMovement[0]);
+            //character
+            Character();
+            character = Image.FromFile(characterMovement[0]);
 
             //platform
             MakePlatform();
@@ -379,8 +391,8 @@ namespace ScreamOMario
 
 
             //naudio
-            waveIn.DataAvailable += OnDataAvailable;
             waveIn.DeviceNumber = deviceNumber;
+            waveIn.DataAvailable += OnDataAvailable;
             waveIn.StartRecording();
         }
 
@@ -391,8 +403,17 @@ namespace ScreamOMario
             {
                 steps = start;
             }
-
-            Mario = Image.FromFile(marioMovement[steps]);
+            character = Image.FromFile(characterMovement[steps]);
+        }
+        private void Character()
+        {
+            switch (characterIndex)
+            {
+                //Mario
+                case 0: characterMovement = Directory.GetFiles("Mario", "*.png").ToList(); break;
+                case 1: characterMovement = Directory.GetFiles("Luigi", "*.png").ToList(); break;
+                case 2: characterMovement = Directory.GetFiles("Yoshi", "*.png").ToList(); break;
+            }
         }
     }
 }

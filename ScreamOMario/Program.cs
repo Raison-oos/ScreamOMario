@@ -16,8 +16,7 @@ namespace ScreamOMario
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Starting_Screen());
-            Application.Run(new CharacterSelection());
+            Application.Run(new Starting_Screen());
         }
     }
 }

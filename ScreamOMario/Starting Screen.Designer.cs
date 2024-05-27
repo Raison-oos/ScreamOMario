@@ -28,19 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Starting_Screen));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.btnCharacter = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnPlayGame = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,29 +54,20 @@
             this.panel1.Size = new System.Drawing.Size(388, 193);
             this.panel1.TabIndex = 1;
             // 
-            // pictureBox2
+            // btnCharacter
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(3, 136);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(412, 235);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(-2, -2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(388, 193);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // Timer
-            // 
-            this.Timer.Enabled = true;
-            this.Timer.Interval = 20;
+            this.btnCharacter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(148)))), ((int)(((byte)(252)))));
+            this.btnCharacter.BackgroundImage = global::ScreamOMario.Properties.Resources.Character;
+            this.btnCharacter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCharacter.FlatAppearance.BorderSize = 0;
+            this.btnCharacter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCharacter.ForeColor = System.Drawing.Color.Coral;
+            this.btnCharacter.Location = new System.Drawing.Point(317, 300);
+            this.btnCharacter.Name = "btnCharacter";
+            this.btnCharacter.Size = new System.Drawing.Size(121, 27);
+            this.btnCharacter.TabIndex = 5;
+            this.btnCharacter.UseVisualStyleBackColor = false;
+            this.btnCharacter.Click += new System.EventHandler(this.btnCharacter_Click);
             // 
             // btnSettings
             // 
@@ -87,7 +77,7 @@
             this.btnSettings.FlatAppearance.BorderSize = 0;
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.ForeColor = System.Drawing.Color.Coral;
-            this.btnSettings.Location = new System.Drawing.Point(317, 276);
+            this.btnSettings.Location = new System.Drawing.Point(317, 267);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(121, 27);
             this.btnSettings.TabIndex = 4;
@@ -102,7 +92,7 @@
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.Color.Coral;
-            this.btnExit.Location = new System.Drawing.Point(317, 309);
+            this.btnExit.Location = new System.Drawing.Point(317, 333);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(104, 22);
             this.btnExit.TabIndex = 3;
@@ -117,12 +107,31 @@
             this.btnPlayGame.FlatAppearance.BorderSize = 0;
             this.btnPlayGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlayGame.ForeColor = System.Drawing.Color.Coral;
-            this.btnPlayGame.Location = new System.Drawing.Point(317, 243);
+            this.btnPlayGame.Location = new System.Drawing.Point(317, 234);
             this.btnPlayGame.Name = "btnPlayGame";
             this.btnPlayGame.Size = new System.Drawing.Size(141, 27);
             this.btnPlayGame.TabIndex = 2;
             this.btnPlayGame.UseVisualStyleBackColor = false;
             this.btnPlayGame.Click += new System.EventHandler(this.btnPlayGame_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(-2, -2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(388, 193);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(3, 136);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(412, 235);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -141,6 +150,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 411);
+            this.Controls.Add(this.btnCharacter);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnPlayGame);
@@ -153,8 +163,8 @@
             this.Text = "Starting_Screen";
             this.Load += new System.EventHandler(this.Starting_Screen_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -168,7 +178,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnPlayGame;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Timer Timer;
         private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Button btnCharacter;
     }
 }

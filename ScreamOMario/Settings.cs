@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using NAudio.Wave;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ScreamOMario
 {
@@ -42,11 +34,11 @@ namespace ScreamOMario
         private void inputDevices_SelectedIndexChanged(object sender, EventArgs e)
         {
             //default
-            if(inputDevices.SelectedIndex == 0)
+            if(inputDevices.SelectedIndex == 1)
             {
                 inputDevice = 0;
             }
-            for(int i = 1;i < inputDevices.Items.Count;i++) { 
+            for(int i = 2;i < inputDevices.Items.Count;i++) { 
                 if(inputDevices.SelectedIndex == i)
                 {
                     inputDevice = i;

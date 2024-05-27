@@ -13,18 +13,20 @@ namespace ScreamOMario
         Image Character;
         List<string> Characters = new List<string>();
         int characterIndex;
-
-        public CharacterSelection()
+        Starting_Screen character = null;
+        public CharacterSelection(Starting_Screen character)
         {
             InitializeComponent();
+            this.character = character;   
         }
 
         private void CharacterSelection_Load(object sender, EventArgs e)
         {
             //Characters
-            Characters = Directory.GetFiles("Mario", "*.png").ToList(); 
-            //Default Character0
-            characterIndex = 0;
+            Characters = Directory.GetFiles("Characters", "*.png").ToList(); 
+
+            //Default Character
+            characterIndex = this.character.characterIndex;
             Character = Image.FromFile(Characters[characterIndex]);
         }
 
@@ -39,6 +41,7 @@ namespace ScreamOMario
                 characterIndex+=1;
             }
             Character = Image.FromFile(Characters[characterIndex]);
+            CharacterName();
             this.Invalidate();
         }
 
@@ -53,6 +56,7 @@ namespace ScreamOMario
                 characterIndex-=1;
             }
             Character = Image.FromFile(Characters[characterIndex]);
+            CharacterName();
             this.Invalidate();
 
         }
@@ -61,6 +65,23 @@ namespace ScreamOMario
         {
             Graphics g = e.Graphics;
             g.DrawImage(Character, 80, 1, 600, 372);
+        }
+        private void CharacterName()
+        {
+            switch(characterIndex)
+            {
+                case 0: characterName.Text = "Mario"; break;
+                case 1: characterName.Text = "Luigi"; break;
+                case 2: characterName.Text = "Yoshi"; break;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.character.characterIndex = characterIndex;
+            this.character.ChangeCharacter();
+            this.Close();
+            character.Show();
         }
     }
 }

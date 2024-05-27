@@ -13,24 +13,28 @@ namespace ScreamOMario
 {
     public partial class GameOver : Form
     {
+        //save details
         int deviceNumber;
         bool isPushToTalk;
-        public GameOver(int score, bool isPushToTalk,int deviceNumber)
+        int characterIndex;
+        
+        //Music
+        SoundPlayer player = new SoundPlayer("GameOver.wav");
+
+        public GameOver(int score, bool isPushToTalk,int deviceNumber, int characterIndex)
         {
             InitializeComponent();
             lblScore.Text = score.ToString();
             this.deviceNumber = deviceNumber;
             this.isPushToTalk = isPushToTalk;
+            this.characterIndex = characterIndex;
         }
-        SoundPlayer player = new SoundPlayer("GameOver.wav");
 
         private void btnPlayGame_Click(object sender, EventArgs e)
         {
             this.Close();
             player.Stop();
-            //ScreamOMario Form1 = new ScreamOMario(deviceNumber, isPushToTalk);
-            //Form1.Show();
-            Starting_Screen starting_Screen = new Starting_Screen(deviceNumber,isPushToTalk);
+            Starting_Screen starting_Screen = new Starting_Screen(deviceNumber,isPushToTalk,characterIndex);
             starting_Screen.Show();
         }
 
