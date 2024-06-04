@@ -40,6 +40,7 @@ namespace ScreamOMario
             this.lblScore = new System.Windows.Forms.Label();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.CoinTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,6 +94,7 @@ namespace ScreamOMario
             // GameTimer
             // 
             this.GameTimer.Enabled = true;
+            this.GameTimer.Interval = 20;
             this.GameTimer.Tick += new System.EventHandler(this.GameOverEvenet);
             // 
             // pictureBox1
@@ -105,6 +107,12 @@ namespace ScreamOMario
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            // 
+            // CoinTimer
+            // 
+            this.CoinTimer.Enabled = true;
+            this.CoinTimer.Interval = 9000;
+            this.CoinTimer.Tick += new System.EventHandler(this.CoinEvent);
             // 
             // ScreamOMario
             // 
@@ -142,6 +150,7 @@ namespace ScreamOMario
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.Timer GameTimer;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer CoinTimer;
     }
 }
 

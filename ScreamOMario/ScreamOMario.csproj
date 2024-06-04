@@ -86,6 +86,12 @@
     <Compile Include="CharacterSelection.Designer.cs">
       <DependentUpon>CharacterSelection.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tutorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tutorial.Designer.cs">
+      <DependentUpon>Tutorial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </Compile>
     <EmbeddedResource Include="CharacterSelection.resx">
       <DependentUpon>CharacterSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tutorial.resx">
+      <DependentUpon>Tutorial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -229,6 +238,37 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Character.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tutorial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pipe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background21.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

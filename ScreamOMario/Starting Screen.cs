@@ -77,10 +77,16 @@ namespace ScreamOMario
                 case 0: Player = Image.FromFile(@".\Character\Character (01).png"); break;
                 case 1: Player = Image.FromFile(@".\Character\Character (02).png"); break;
                 case 2: Player = Image.FromFile(@".\Character\Character (03).png"); break;
+                case 3: Player = Image.FromFile(@".\Character\Character (04).png"); break;
             }
             this.Invalidate();
 
         }
 
+        private void btnHowTo_Click(object sender, EventArgs e)
+        {
+            Tutorial tutorial = new Tutorial(inputDevice, isPushToTalk, characterIndex);
+            tutorial.Show();
+        }
     }
 }

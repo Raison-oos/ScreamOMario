@@ -113,6 +113,16 @@ namespace ScreamOMario.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Background21 {
+            get {
+                object obj = ResourceManager.GetObject("Background21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Background3 {
             get {
                 object obj = ResourceManager.GetObject("Background3", resourceCulture);
@@ -177,6 +187,16 @@ namespace ScreamOMario.Properties {
             get {
                 object obj = ResourceManager.GetObject("Music", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pipe {
+            get {
+                object obj = ResourceManager.GetObject("pipe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -276,6 +296,16 @@ namespace ScreamOMario.Properties {
         internal static System.Drawing.Bitmap Title {
             get {
                 object obj = ResourceManager.GetObject("Title", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tutorial {
+            get {
+                object obj = ResourceManager.GetObject("Tutorial", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

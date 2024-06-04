@@ -23,9 +23,10 @@ namespace ScreamOMario
         private void CharacterSelection_Load(object sender, EventArgs e)
         {
             //Characters
-            Characters = Directory.GetFiles("Characters", "*.png").ToList(); 
+            Characters = Directory.GetFiles("Characters", "*.png").ToList();
 
             //Default Character
+            CharacterName();
             characterIndex = this.character.characterIndex;
             Character = Image.FromFile(Characters[characterIndex]);
         }
@@ -73,6 +74,7 @@ namespace ScreamOMario
                 case 0: characterName.Text = "Mario"; break;
                 case 1: characterName.Text = "Luigi"; break;
                 case 2: characterName.Text = "Yoshi"; break;
+                case 3: characterName.Text = "Papa B"; break;
             }
         }
 

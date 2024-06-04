@@ -127,6 +127,9 @@
   <data name="Play Again" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Play Again.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Tutorial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tutorial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Play Game1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Play Game2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,26 +145,26 @@
   <data name="Background2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Background2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Music" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Music.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Title" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Play Game" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Play Game1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Music" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Music.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Mario_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Mario Idle Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="platform" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CustomEdited-MarioCustoms-SuperMarioBrosTilesNewSuperMarioBros-Style-ezgif.com-crop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Background1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GameOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GameOver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Background (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Background (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,14 +175,20 @@
   <data name="score (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\score (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Character" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Character.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Resume" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Resume.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="GameOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GameOver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Mario_Idle_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mario Idle Left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Background3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Background1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,7 +196,7 @@
   <data name="Mario_Idle_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mario Idle Right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Character" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Character.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Background21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Background21.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

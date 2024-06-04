@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Media;
+using System.Reflection;
+using ScreamOMario.Properties;
 
 namespace ScreamOMario
 {
@@ -35,6 +37,10 @@ namespace ScreamOMario
         Random rand = new Random();
         int platformCount = 10;
         int platformGap;
+
+        //coin
+        Platform coin = new Platform();
+       
 
         //score
         int score = 0;
@@ -285,6 +291,9 @@ namespace ScreamOMario
 
         private void PlatformEvent(object sender, EventArgs e)
         {
+            //coin
+            coin.positionY += 5;
+
             foreach(Platform platform in platforms)
             {
                 if (positionY<= this.ClientSize.Height / 2 - character.Height)
@@ -309,12 +318,17 @@ namespace ScreamOMario
         private void ScreamOMario_Paint_1(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
+            //paltform
             foreach(Platform platform in platforms)
             {
-                //graphics.DrawImage(platform.platformImage,platform.positionX,platform.positionY);
                 graphics.DrawImage(platform.platformImage,platform.positionX,platform.positionY, platform.platformImage.Width, platform.platformImage.Height );
             }
+            //Mario
             graphics.DrawImage(character, positionX, positionY, character.Width, character.Height);
+            
+            //Coins
+            graphics.DrawImage(coin.platformImage,coin.positionX,coin.positionY, coin.platformImage.Width, coin.platformImage.Height );
+
             graphics.DrawImage(platforms[10].platformImage, platforms[10].positionX, platforms[10].positionY, platforms[10].platformImage.Width, platforms[10].platformImage.Height);
         }
 
@@ -331,6 +345,16 @@ namespace ScreamOMario
                             positionY = platform.positionY -character.Height;
                         }
                     }
+                }
+            }
+            if (positionY + character.Height > coin.positionY && positionY + character.Height < coin.positionY + coin.platformImage.Height)
+            {
+                if (positionX > coin.positionX - character.Width && positionX < coin.positionX + coin.platformImage.Width )
+                {
+                    coin.positionY = this.Height + coin.platformImage.Height;
+                    score += 500;
+                    lblScore.Text = "";
+                    lblScore.Text = score.ToString();
                 }
             }
         }
@@ -365,7 +389,6 @@ namespace ScreamOMario
             if(positionY > 369 + character.Height)
             {
                 this.Close();
-
                 player.Stop();
                 GameOver gameOver = new GameOver(score, isPushToTalk, deviceNumber, characterIndex);
                 gameOver.Show();
@@ -382,6 +405,9 @@ namespace ScreamOMario
             MakePlatform();
             platformGap = this.ClientSize.Height/platformCount;
 
+            //coin
+            MakeCoin();
+
             //score
             score = 0;
             lblScore.Text = score.ToString();
@@ -394,6 +420,16 @@ namespace ScreamOMario
             waveIn.DeviceNumber = deviceNumber;
             waveIn.DataAvailable += OnDataAvailable;
             waveIn.StartRecording();
+        }
+
+        private void CoinEvent(object sender, EventArgs e)
+        {
+            if (coin.positionY > 389 + coin.platformImage.Height)
+            {
+                coin.positionX = rand.Next(0, this.ClientSize.Width - coin.platformImage.Width);
+                coin.positionY = 0;
+            }
+
         }
 
         private void AnimateMario(int start, int end)
@@ -413,7 +449,14 @@ namespace ScreamOMario
                 case 0: characterMovement = Directory.GetFiles("Mario", "*.png").ToList(); break;
                 case 1: characterMovement = Directory.GetFiles("Luigi", "*.png").ToList(); break;
                 case 2: characterMovement = Directory.GetFiles("Yoshi", "*.png").ToList(); break;
+                case 3: characterMovement = Directory.GetFiles("Papa B", "*.png").ToList(); break;
             }
+        }
+        private void MakeCoin()
+        {
+            coin.platformImage = Image.FromFile("coin.png");
+            coin.positionX = rand.Next(0, this.ClientSize.Width - coin.platformImage.Width);
+            coin.positionY = 0;
         }
     }
 }
